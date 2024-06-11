@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>Exercise 16abc</title>
+		<h2 style="color:royalblue;">Exercise 16abc: Math</h2>
+		<h1 style="color:royalblue;"><u>Mathematical Number Generator by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:pink">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Math page"); //Welcoming alert
+            
+            var num = parseInt(prompt("Please enter your magical number, anywhere from 1 to 170!", "1")); //Asks for number
+            
+            if(num > 170) {
+                alert("Your number was over 170! You broke the rules!"); 
+            }else if(isNaN(num)) {
+                alert("Your input was invalid. Please try again.");
+            }
+            
+            var sum = 0;
+            var iterator = 0;
+            var product = 1;
+            var thing = 0;
+            var cool = 1;
+            
+            function square() {
+                if(num <= 170) {
+                    for(var i = 0; i < num; i++)
+                        document.write(i*i, " ");
+                }else {
+                    document.write("Cannot compute!");
+                }
+            } //Prints every number up to input squared
+            
+            function add() {
+                if(num <= 170) {
+                    while(iterator < num) {
+                        sum = iterator + 1 + sum;
+                        iterator++;
+                    }
+                    document.write(sum);
+                }else {
+                    document.write("Cannot compute!");
+                }
+            } //Prints the sum of every number up to input
+            
+            function factorial() {
+                if(num <= 170) {
+                    do{
+                        for(var i = 1; i < num; i++) {
+                            product = product * i;  
+                        }
+                        document.write(product);
+                    }while(false);
+                }else {
+                    document.write("Cannot compute!");
+                }
+            } 
+            
+            function extra() {
+                do{
+                    thing = parseInt(prompt("Input another number:", "0"));
+                    for(var i = 1; i < thing; i++){
+                        cool = cool * i;
+                    }
+                }while(confirm("Add a new number?"));
+                document.getElementById("extra").textContent = `Your wacky number is: ${cool}`;
+            }
+            
+            document.write(`<h1>Your number is: <span style=\'color:red\'>${num}</h1>`)
+		</script>
+        
+        <div style="background-color:indianred">
+            <script>
+                document.write(`<h2>Here is every number up to ${num} squared</h2>`)
+                square();
+            </script>
+        </div>
+        
+        <div style="background-color:limegreen">
+            <script>
+                document.write(`<h2>Here is the sum of every number up to ${num} added together:</h2>`);
+                add();
+            </script>
+        </div>
+        
+        <div style="background-color:cornflowerblue">
+            <script>
+                document.write(`<h2>Here is the factorial of ${num}</h2>`);
+                factorial();
+            </script>
+        </div>
+        
+        <div style="background-color:gray">
+            <h2>Extra factorial section:</h2>
+            <button onClick="extra()">Click here</button>
+            <p id="extra"></p>
+        </div>
+        
+	</body>
+</html>

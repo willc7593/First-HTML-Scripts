@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Exercise 7a</title>
+		<h2 style="color:darkslategrey;">Exercise 7a: Calculator</h2>
+		<h1 style="color:darkslategrey;"><u>A Simple Calculator by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:red;">
+		<img src="https://compass1.org/wp-content/uploads/2015/06/Calculator_clipped_rev_1.png" alt="A Calculator" width="300" height="400" onMouseOver="alert('Beep Boop');"> <!--Interactive picture -->
+        
+		<script language = "JavaScript" type = "text/javascript">
+		alert("Welcome to the Calculator page"); //Welcoming alert
+		
+		var numA = parseInt(prompt("Write your first number"));	
+		var operator = prompt("You can choose +, -, /, x, and %");	
+		var numB = parseInt(prompt("Write your second number")); //Input prompts
+		var space = " "; //Used for conveniency
+
+		function calculate() {
+            if ((isNaN(numA) != true) && (isNaN(numB) != true)) {
+                switch (operator) {
+                    case "+": return numA + numB;
+                    break;
+                        
+                    case "-": return numA - numB;
+                    break;
+                        
+                    case "/": return numA / numB;
+                    break;
+                        
+                    case "x": return numA * numB; 
+                    break;
+                        
+                    case "%": return numA % numB;
+                    break;
+                        
+                    default: return "Your input was invalid. Please try again.";
+                }
+            }else {
+                return "Your input was invalid. Please try again.";
+            }
+		} //Calculates simple equation
+
+		document.write("<h2>You asked: <span style=\"color:royalblue;\">", numA, space, operator, space, numB + "</span></h2>"); //Writes input
+        document.write("<p><h1>The answer is: <span style=\"color:mediumseagreen;\">" + calculate() +"</span><h1>"); //Writes answer
+		</script>
+	</body>
+</html>

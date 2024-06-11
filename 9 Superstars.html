@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Exercise 9</title>
+		<h2 style="color:goldenrod;">Exercise 9: Superstars</h2>
+		<h1 style="color:goldenrod;"><u>My Favorite Superstars by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:black;">
+        
+        <script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Superstars page"); //Welcoming alert
+            
+            var m = {
+                name: "Mario Mario",
+                age: 37,
+                occupation: "Plumber",
+                nationality: "Italian",
+                affiliates: ["Luigi", " Princess Peach", " Bowser", " and Donkey Kong"],
+                starRole: "Super Mario World",
+                
+                display() {
+                    return `Their name is: ${this.name}\nThey're: ${this.age} years old\nTheir occupation is: ${this.occupation}\nTheir nationality is: ${this.nationality}\nTheir affiliates are: ${this.affiliates}\nTheir star role is in: ${this.starRole}`
+                } //Method for displaying
+            }; //Mario info
+            
+            var l = {
+                name: "Luigi Mario",
+                age: 37,
+                occupation: "Plumber",
+                nationality: "Italian",
+                affiliates: ["Mairo", " Princess Daisy", " King Boo", " and Prof. E. Gadd"],
+                starRole: "Luigi's Mansion",
+                
+                display() {
+                    return `Their name is: ${this.name}\nThey're: ${this.age} years old\nTheir occupation is: ${this.occupation}\nTheir nationality is: ${this.nationality}\nTheir affiliates are: ${this.affiliates}\nTheir star role is in: ${this.starRole}`
+                } //Method for displaying
+            }; //Luigi info
+		</script>
+        
+        <div style="background-color:indianred">
+            <center><img name="mario" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/MarioNSMBUDeluxe.png/220px-MarioNSMBUDeluxe.png" onClick="alert(m.display());" onMouseOut="document.images['mario'].src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/MarioNSMBUDeluxe.png/220px-MarioNSMBUDeluxe.png';" onMouseOver="document.images['mario'].src='https://www.mariowiki.com/images/thumb/1/15/MarioNSMB2.png/1200px-MarioNSMB2.png';" alt="Mario" width="270" height="400"><!--Mario image-->
+                
+            <h2>This is my favorite Male Superstar, <span style="color:goldenrod;">Mario</span></h2>
+            <p><i>Click image for more details</i></p></center>
+        </div> <!-- Mario display-->
+        
+        <div style="background-color:forestgreen">
+            <center><img name="luigi" src="https://vignette.wikia.nocookie.net/mario/images/6/69/696px-Luigi_New_Super_Mario_Bros_U_Deluxe.png/revision/latest?cb=20190623144153" onClick="alert(l.display());" onMouseOut="document.images['luigi'].src='https://vignette.wikia.nocookie.net/mario/images/6/69/696px-Luigi_New_Super_Mario_Bros_U_Deluxe.png/revision/latest?cb=20190623144153';" onMouseOver="document.images['luigi'].src='https://giantbomb1.cbsistatic.com/uploads/scale_medium/9/99864/2389814-nsmbuluigi.png';" alt="Luigi" width="270" height="450"><!--Lugi image-->
+                
+            <h2>This is my favorite Female Superstar, <span style="color:goldenrod;">Luigi</span></h2>
+            <p><i>Click image for more details</i></p></center>
+        </div> <!--Luigi display-->
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+	<head text="black">
+		<title>Exercise 11</title>
+		<h2 style="color:black;">Exercise 11: Colours</h2>
+		<h1 style="color:black;"><u>Colour Testing by: Will Croll</u></h1>
+	</head>
+	
+	<body bgcolor="slategrey">
+        
+        <script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Colours page"); //Welcoming alert
+            
+            function random() {
+                var colours = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+                var num = Math.floor(Math.random()*7);
+                
+                for(var i = 0; i < colours.length; i++) {
+                    if(i === num) {
+                        return colours[i];
+                    }
+                }
+            } //Script is for random function
+		</script>
+        
+        <h2>Change the Background:</h2> <!--For background-->
+        <p><button onclick="document.body.bgColor='red';">Red</button>
+        <button onclick="document.body.bgColor='#FFA500';">Orange</button>
+        <button onclick="document.body.bgColor='yellow';">Yellow</button>
+        <button onclick="document.body.bgColor='#008000';">Green</button>
+        <button onclick="document.body.bgColor='blue';">Blue</button>
+        <button onclick="document.body.bgColor='#800080';">Purple</button>
+        <button onclick="document.body.bgColor='#ffc0cb';">Pink</button>
+        <button onclick="document.body.bgColor= random();">Random</button>
+            
+        <p><p><h2>Change the Text:</h2> <!--For all text-->
+        <p><button onclick="document.body.text='red';">Red</button>
+        <button onclick="document.body.text='#FFA500';">Orange</button>
+        <button onclick="document.body.text='yellow';">Yellow</button>
+        <button onclick="document.body.text='#008000';">Green</button>
+        <button onclick="document.body.text='blue';">Blue</button>
+        <button onclick="document.body.text='#800080';">Purple</button>
+        <button onclick="document.body.text='#ffc0cb';">Pink</button>
+        <button onclick="document.body.text= random();">Random</button>   
+            
+        <h2>Change the Lyrics Background:</h2> <!--For background of lyrics-->
+        <p><button onclick="document.getElementById('lyrics').style.backgroundColor='red';">Red</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='#FFA500';">Orange</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='rgb(255, 255, 0)';">Yellow</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='hsl(120, 100%, 25%)';">Green</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='blue';">Blue</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='#800080';">Purple</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor='rgb(255, 192, 203)';">Pink</button>
+        <button onclick="document.getElementById('lyrics').style.backgroundColor= random();">Random</button>
+            
+        <div id="lyrics" style="background-color:lightgrey;"><center><h2><u>All Star by: Smash Mouth</u></h2><p>Somebody once told me the world is gonna roll me<p>
+            I ain't the sharpest tool in the shed<p>
+            She was looking kind of dumb with her finger and her thumb<p>
+            In the shape of an "L" on her forehead<p>
+            Well the years start coming and they don't stop coming<p>
+            Fed to the rules and I hit the ground running<p>
+            Didn't make sense not to live for fun<p>
+            Your brain gets smart but your head gets dumb<p>
+            So much to do, so much to see<p>
+            So what's wrong with taking the back streets?<p>
+            You'll never know if you don't go<p>
+            You'll never shine if you don't glow<p>
+            Hey now, you're an all-star, get your game on, go play<p>
+            Hey now, you're a rock star, get the show on, get paid<p>
+            And all that glitters is gold<p>
+            Only shooting stars break the mold</p></center></div> <!--Lyrics to change colour of-->
+	</body>
+</html>

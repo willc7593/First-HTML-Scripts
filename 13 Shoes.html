@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<title>Exercise 13</title>
+		<h2 style="color:antiquewhite;">Exercise 13: Shoes</h2>
+		<h1 style="color:antiquewhite;"><u> Payless Shoe Store by: Will Croll</u></h1>
+	</head>
+	
+	<body bgcolor="cornflowerblue">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Shoes page"); //Welcoming alert
+            
+            var gender = prompt("Are you looking for Men's or Women's shoes?", "Type \'men\' or \'women\'.").toLowerCase(); //Asks for gender
+            var size; 
+            
+            if(gender === "men") {
+                size = prompt("What size shoes are you looking for? Men's sizes are 8 to 12", "8"); //Asks for shoe size
+            }else if(gender === "women") {
+                size = prompt("What size shoes are you looking for? Women's sizes are 5 to 9", "5"); //Asks for shoe size
+            }else {
+                alert("You didn't enter a valid gender.");
+                document.write("<h2>Transaction failed. Please refresh window to try again.</h2>"); //Error
+            } //Asks for shoe size or returns error
+            
+            var mens = { //All mens shoe types
+                7: "baby",
+                8: "small",
+                9: "medium",
+                10: "big",
+                11: "large",
+                12: "huge",
+                13: "giant", 
+            };
+            var womens = { //All womens shoe types
+                4: "baby", 
+                5: "small",
+                6: "medium",
+                7: "big", 
+                8: "large", 
+                9: "huge",
+                10: "giant",
+            };
+            
+            function recommend() {
+                if(gender === "men") {
+                    switch(size) {
+                        case '8': return "https://pmcfootwearnews.files.wordpress.com/2018/06/keds-champion-canvas-cvo.jpg?w=1024";
+                        break;
+                            
+                        case '9': return "https://www.famousfootwear.ca/productimages/shoes_ia707188.jpg?trim.threshold=105&width=630&height=480&paddingWidth=60";
+                        break;
+                            
+                        case '10': return "https://images.vans.com/is/image/Vans/EYEW00-HERO?$583x583$";
+                        break;
+                            
+                        case '11': return "https://w0.pngwave.com/png/976/606/shoe-leather-adidas-puma-men-s-big-shoes-png-clip-art.png";
+                        break;
+                            
+                        case '12': return "https://images-na.ssl-images-amazon.com/images/I/51jEJhTgR0L._AC_SL1010_.jpg";
+                        break;
+                            
+                        default: return "https://images-na.ssl-images-amazon.com/images/I/51WoQlG1rUL._AC_SX466_.jpg";
+                        break;
+                    }
+                }else {
+                    switch(size) {
+                        case '5': return "https://image.shutterstock.com/image-photo/blue-baby-shoes-isolated-on-260nw-70654768.jpg";
+                        break;
+                            
+                        case '6': return "https://pmcfootwearnews.files.wordpress.com/2018/06/keds-champion-canvas-cvo.jpg?w=1024";
+                        break;
+                            
+                        case '7': return "https://www.famousfootwear.ca/productimages/shoes_ia707188.jpg?trim.threshold=105&width=630&height=480&paddingWidth=60";
+                        break;
+                            
+                        case '8': return "https://images.vans.com/is/image/Vans/EYEW00-HERO?$583x583$";
+                        break;
+                            
+                        case '9': return "https://w0.pngwave.com/png/976/606/shoe-leather-adidas-puma-men-s-big-shoes-png-clip-art.png";
+                        break;
+                            
+                        default: return "https://images-na.ssl-images-amazon.com/images/I/51WoQlG1rUL._AC_SX466_.jpg";
+                        break;
+                    }
+                }
+            } // Finds image to display
+            
+        
+            if(gender === "men") { //Transaction for male customers
+                for(var i in mens) {
+                    if(size < 8) {
+                        alert(`Your shoe size is \'${mens[7]}\'.`);
+                        alert("We don't serve puny little shoes here! Go away!");
+                        document.write("<h2>Come back when your feet are normal!</h2>");
+                        break;
+                    }else if(size > 12) {
+                        alert(`Your shoe size is \'${mens[13]}\'.`);
+                        alert("We don't serve freakishly large shoes here! Go away!");
+                        document.write("<h2>Come back when your feet are normal!</h2>");
+                        break;
+                    }else if(i === size) {
+                        alert(`Your shoe size is \'${mens[i]}\'.`);
+                        alert("Your feet are perfecly normal! Please continue.");
+                        document.write(`<h2>Here are the search results for <span style=\"color:tomato;\">${gender}</span>'s size <span style=\"color:green;\">${size}</span> shoes:</h2>`);
+                    }
+                } //Validates mens shoe size
+            }else if(gender === "women") { //Transaction for female customers
+                for(var i in womens) {
+                    if(size < 5) {
+                        alert(`Your shoe size is \'${womens[4]}\'.`);
+                        alert("We don't serve puny little shoes here! Go away!");
+                        document.write("<h2>Come back when your feet are normal!</h2>");
+                        break;
+                    }else if(size > 9) {
+                        alert(`Your shoe size is \'${womens[10]}\'.`);
+                        alert("We don't serve freakishly large shoes here! Go away!");
+                        document.write("<h2>Come back when your feet are normal!</h2>");
+                        break;
+                    }else if(i === size) {
+                        alert(`Your shoe size is \'${womens[i]}\'.`);
+                        alert("Your feet are perfecly normal! Please continue.");
+                        document.write(`<h2>Here are the search results for <span style=\"color:tomato;\">${gender}</span>'s size <span style=\"color:green;\">${size}</span> shoes:</h2>`);
+                    }
+                } //Validates womens shoe size
+            }
+		</script>
+        
+        <div style="background-color:lightgrey">
+            <center><img id="shoe" onClick="document.getElementById('shoe').src=recommend();" alt="Click here for your shoe"></center> <!-- Shows the assigned shoe's image -->
+        </div>
+	</body>
+</html>

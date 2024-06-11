@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Exercise 5</title>
+		<h2>Exercise 5: Family</h2>
+		<h1>My Family by: Will Croll</h1>
+	</head>
+	
+	<body style="background-color:yellow;">
+	<img src="https://attackofthefanboy.com/wp-content/uploads/2018/12/Super-Smash-Bros.-Ultimate-Character-Roster-List.jpg" alt="Family Photo" width="500" height="300" onclick="alert('My family lineage can be seen as quite... extensive.')"> <!-- Clickable family photo -->
+        
+	<script language = "JavaScript" type = "text/javascript">
+		var dad = {
+			name: "George Clooney",
+			age: 100
+		};
+		var mom = {
+			name: "Jennifer Aniston",
+			age: 200
+		};
+		var sister = {
+			name: "Dora the Explorer",
+			age: 1111
+		};
+		var brother = {
+			name: "James Bond",
+			age: -15
+		};
+		var grandpa = {
+			name: "Jean-Luc Picard",
+			age: 4
+		};
+		var grandma = {
+			name: "Balrog the Eternal",
+			age: "REDACTED"
+		}; //All family members are created as objects
+		
+		function ages() {
+			return dad.age + mom.age + sister.age + brother.age + grandpa.age;
+		} //Adds all the ages together
+	
+		document.write("<p><br>My Dad\'s name is <span style=\"color:red;\"><b>", dad.name + "</b></span>, and he\'s <span style=\"color:blue;\"><b>", dad.age + "</b></span> years old!");
+		document.write("<p>My Mom\'s name is <span style=\"color:red;\"><b>", mom.name + "</b></span>, and she\'s <span style=\"color:blue;\"><b>", mom.age + "</b></span> years old!");
+		document.write("<p>My Sister\'s name is <span style=\"color:red;\"><b>", sister.name + "</b></span>, and she\'s <span style=\"color:blue;\"><b>", sister.age + "</b></span> years old!");
+		document.write("<p>My Brother\'s name is <span style=\"color:red;\"><b>", brother.name + "</b></span>, and he\'s <span style=\"color:blue;\"><b>", brother.age + "</b></span> years old!");
+		document.write("<p>My Grandpa\'s name is <span style=\"color:red;\"><b>", grandpa.name + "</b></span>, and he\'s <span style=\"color:blue;\"><b>", grandpa.age + "</b></span> years old!");
+		document.write("<p>My Grandma\'s name is <span style=\"color:red;\"><b>", grandma.name + "</b></span>, and she\'s <span style=\"color:yellow; border:2px solid gold\"><b>", grandma.age + "</b></span> years old!"); // Writes all the information down
+		
+		document.write("<p><br> All together, my family's total age is: <span style=\"color:blue;\"><b>" + ages() + "<span style=\"color:yellow; border:2px solid gold\"> plus the eternal years of sin of Balrog the Eternal</span>"); //Displays all ages added together 
+		
+		alert("Welcome to the Family page"); //Welcoming message
+	</script>
+	</body>
+</html>

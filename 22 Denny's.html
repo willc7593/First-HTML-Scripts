@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<title>Exercise 22</title>
+		<h2 style="color:red;">Exercise 22: Denny's</h2>
+		<h1 style="color:red;"><u>Ordering from Denny's Restraunt by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:burlywood">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to Denny's!"); //Welcoming alert
+
+            var checked = false;
+            
+            var sale = Math.floor(Math.random()*4)+1;
+            var stock = Math.ceil(Math.random()*4)+1
+                
+            if(stock === sale) {
+                stock --;
+            }
+
+            var breakfast = {
+                kids: {
+                    1: 'Chocolate Chip Pancakes',
+                    2: 'Chicken Strips',
+                    3: 'Cheeseburger',
+                    4: 'Spaghetti',
+                    5: 'Jr. Grand Slam'
+                },
+                adult: {
+                    1: 'Pancakes',
+                    2: 'Waffles',
+                    3: 'Burger',
+                    4: 'Salad',
+                    5: 'Grand Slam'
+                },
+                senior: {
+                    1: 'Pancakes',
+                    2: 'French Toast',
+                    3: 'Omlette',
+                    4: 'Chicken',
+                    5: 'Turkey'
+                }
+            }
+            
+            var sides = {
+                kids: {
+                    1: 'Toast',
+                    2: 'Bacon',
+                    3: 'Juice',
+                    4: 'Milk',
+                    5: 'Milkshake'
+                },
+                adult: {
+                    1: 'Toast',
+                    2: 'Bacon',
+                    3: 'Eggs',
+                    4: 'Water',
+                    5: 'Coffee'
+                },
+                senior: {
+                    1: 'Broccoli',
+                    2: 'Soup',
+                    3: 'Tea',
+                    4: 'Water',
+                    5: 'Smoothie'
+                }
+            }
+            
+            function menu(age) {
+                if(age === 'kid') {
+                    alert("Kids menu selected. Your menu will be super cool!");
+                    for(var i = 1; i < 6; i++) {
+                        document.getElementById('b'+i).textContent = `${breakfast.kids[i]}`;
+                        document.getElementById('s'+i).textContent = `${sides.kids[i]}`;
+                    }
+                    
+                }else if(age === 'adult') {
+                    alert("Adult menu selected. Menu contents changed.");
+                    for(var i = 1; i < 6; i++) {
+                        document.getElementById('b'+i).textContent = `${breakfast.adult[i]}`;
+                        document.getElementById('s'+i).textContent = `${sides.adult[i]}`;
+                    }
+                    
+                }else if(age === 'senior') {
+                    alert("Senior menu selected. Your menu is going to look different, but don't be confused.");
+                    for(var i = 1; i < 6; i++) {
+                        document.getElementById('b'+i).textContent = `${breakfast.senior[i]}`;
+                        document.getElementById('s'+i).textContent = `${sides.senior[i]}`;
+                    }
+                }
+            }
+            
+            function yay(box) {
+                checked = true;
+                
+                if(box === sale) {
+                    alert("We're selling this at 50% off today!");
+                    
+                }else if(box === stock) {
+                    alert("We're sorry, we are currently out of stock of this menu item. Please choose something else.")
+                    document.getElementById(box).checked = false;
+                    checked = false;
+                }
+            }
+            
+            function order() {
+                if((checked === false) || (document.forms.denny.breakfast.value === "")) {
+                    alert("Please enter a full order.");
+                }else {
+                    var main = document.forms.denny.breakfast.value;
+                    var second = [];
+
+                    for(var i = 1; i < 6; i++) {
+                        if(document.getElementById(i).checked === true) {
+                            second.push(document.getElementById('s'+i).textContent)
+                        }
+                    }
+
+                    alert("Your have ordered: "+ main +" with "+ second.join(', ') +".\nYour order will be ready in 20 minutes.");
+                }
+            }
+		</script>
+        
+        <center>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Denny%27s_logo.svg/1200px-Denny%27s_logo.svg.png" alt="Denny's" height="100" width="200">
+        </center>
+        
+        <div style="background-color:white"><form name="denny">
+            
+            <h2>Please Select Your Age</h2>
+            Kids (6 and under)<input type="radio" name="age" onClick="menu('kid')"/> 
+            Adult<input type="radio" name="age" onClick="menu('adult')" checked/> 
+            Senior(65+)<input type="radio" name="age" onClick="menu('senior')"/>
+            
+            <br><br>
+            
+            <h2>Menu</h2>
+            <h3>Breakfast Options:</h3>
+            <span id="b1">Pancakes</span><br>
+            <span id="b2">Waffles</span><br>
+            <span id="b3">Burger</span><br>
+            <span id="b4">Salad</span><br>
+            <span id="b5">Grand Slam</span><br>
+            <input name="breakfast" type="text" value=""/>
+            
+            <h3>Side Options:</h3>
+            <span id="s1">Toast</span> <input id="1" type="checkbox" onClick="yay(1)"/><br>
+            <span id="s2">Bacon</span> <input id="2" type="checkbox" onClick="yay(2)"/><br>
+            <span id="s3">Eggs</span> <input id="3" type="checkbox" onClick="yay(3)"/><br>
+            <span id="s4">Water</span> <input id="4" type="checkbox" onClick="yay(4)"/><br>
+            <span id="s5">Coffee</span> <input id="5" type="checkbox" onClick="yay(5)"/>
+            
+            <br><br>
+            
+            <h3>Confirm Your Order:</h3>
+            <button onClick="order()">Place Order</button>
+            
+            <center>
+                <img src="https://i.pinimg.com/originals/bf/4c/f8/bf4cf815ba0cfbc8728dd578ddd193ce.jpg" alt="AMERICA">
+            </center>
+        </form></div>
+	</body>
+</html>

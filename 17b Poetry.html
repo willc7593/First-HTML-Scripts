@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>Exercise 17b</title>
+		<h2 style="color:mediumblue;">Exercise 17b: Poetry</h2>
+		<h1 style="color:mediumblue;"><u>Roses are red... STRIKES BACK by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:darkred">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Poetry page"); //Welcoming alert
+            
+            var verseA = [ //Random line 3 verses
+                "I've hit my head...",
+                "Pencils aren't made of lead...",
+                "I wish I was asleep in bed...",
+                "I love me some bread...",
+                "I ain't the sharpest tool in the shed...",
+                "After lunch I'm well fed...",
+                "\"Let's split up gang!\", said Fred...",
+                "Countless poems you've read...",
+                "On bagels, Nutela I spread...",
+                "Canadians pronounce Z \'Zed\'..."
+            ];
+            var verseB = [ //Random line 4 verses
+                "Cows go \'Moo\'.",
+                "My enemies are few.",
+                "This poem's as good as new.",
+                "You'd better not eat glue.",
+                "Ghosts go \'BOO\'.",
+                "False statements are not true.",
+                "I can see you.",
+                "COVID's much worse than the flu.",
+                "My dog ate my shoe.",
+                "What's the deeeal with airplane food?"
+            ];
+            var criticism = [ //Random criticisms
+                "If I wrote this, line 3 would be: \'My creativity is dead...\'",
+                "This poem sucks! Where's the creativity? The passion!?",
+                "Roses are red, violets are blue, this poem is dreadful, I'll never forgive you.",
+                "This is the worst randomly generated poem I've ever read.",
+                "Who rhymes \'blue\' with that?",
+                `I give it a ${Math.floor(Math.random()*11)}/10. 1 is bad and 10 is extra bad.`,
+                "Just change to a better poem...",
+                "I feel like I've seen line 4 already...",
+                "Boring!",
+                "Ugh! I wish I had more than 10 pre-determined things to say!"
+            ];
+            var written = false; //For checking wether the poem has been written or not
+            
+            function poem() {
+                document.getElementById("a").textContent = "Roses are red...";
+                document.getElementById("b").textContent = "Violets are blue...";
+                document.getElementById("c").textContent = verseA[Math.floor(Math.random()*10)];
+                document.getElementById("d").textContent = verseB[Math.floor(Math.random()*10)];
+                written = true;
+            } //Writes the poem
+            
+            function complain() {
+                if(written === false) {
+                    document.getElementById("e").textContent = "You haven't even writen out the poem yet! I'll complain even if I don't have anything to complain about!";
+                }else {
+                    document.getElementById("e").textContent = criticism[Math.floor(Math.random()*10)];
+                }
+            } //Writes the complaint
+		</script>
+        
+        <button onClick="poem();">Write out poem</button>
+        <div style="background-color:burlywood"><center>
+            <h2 id="a" style="color:black"></h2>
+            <h2 id="b" style="color:black"></h2>
+            <h2 id="c" style="color:tomato"></h2>
+            <h2 id="d" style="color:mediumseagreen"></h2>
+        </center></div> <!--Where the poem goes-->
+        
+        <button onClick="complain();">Complain</button>
+        <h2 id="e" style="color:aqua"></h2> <!--Where the complaint goes-->
+	</body>
+</html>

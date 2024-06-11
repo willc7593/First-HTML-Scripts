@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title>Exercise 20</title>
+		<h2 style="color:magenta;">Exercise 20: Paint</h2>
+		<h1 style="color:magenta;"><u>House Paint by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:bisque">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Paint page"); //Welcoming alert
+        
+            var width = 0, height = 0, isSet = false;
+            var widthW = 0, heightW = 0, isSetW = false;
+            var widthD = 0, heightD = 0, isSetD = false;
+            var area;
+            
+            var colour;
+            var colours = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+        
+            function dimension(x,y,image, text, set) {
+                var limits;
+                
+                if(image === "dimensions") {
+                    alert("The wall must be 5 to 10 metres tall and wide.");
+                    limits = [5, 10];
+                    
+                }else if(image === "window") {
+                    if(isSet === false) {
+                        alert("Please add wall dimensions first.");
+                        return;
+                    }
+                    alert("The window must be 1 to 5 metres tall and wide.");
+                    limits = [1, 5];
+                    
+                }else if(image === "door") {
+                    if(isSet === false) {
+                        alert("Please add wall dimensions first.");
+                        return;
+                    }
+                    alert("The door must be 2 to 6 metres tall and wide.");
+                    limits = [2, 6];
+                }
+                
+                x = parseInt(prompt("How wide will it be?"));
+                y = parseInt(prompt("How tall will it be?"));
+                
+                if((x < limits[0]) || (x > limits[1]) || (y < limits[0]) || (y > limits[1])) {
+                    alert("Invalid measurements. Please try again.")
+                    
+                } else {
+                    document.images[image].style.height = y * 100;
+                    document.images[image].style.width = x * 100;
+                    document.getElementById(text).textContent = `${image.toUpperCase()}: ${x}x${y}m`
+                    
+                    if(image === "dimensions") {
+                        isSet = true;
+                        width = x;
+                        height = y;
+                    }else if(image === "window") {
+                        isSetW = true;
+                        widthW = x;
+                        heightW = y;
+                        document.images['dimensions'].style.height = (height*100) - (heightW*100);
+                        document.images['dimensions'].style.width = (width*100) - (widthW*100);
+                    }else if(image === "door") {
+                        isSetD = true;
+                        widthD = x;
+                        heightD = y;
+                        document.images['dimensions'].style.height = (height*100) - (heightD*100);
+                        document.images['dimensions'].style.width = (width*100) - (widthW*100);
+                    }
+                }
+            }
+            
+            function colour() {
+                if(isSet === false) {
+                    alert("Please add wall dimensions first.");
+                }else {
+                    alert("You can choose between red, orange, yellow, green, blue, purple, and pink.");
+
+                    colour = prompt("What colour do you want?", "red");
+                    var valid = false;
+
+                    for(var i = 0; i < colours.length; i++) {
+                        if(colours[i] === colour) {
+                            valid = true;
+                            document.getElementById('wall').style.backgroundColor = colour;
+                            area = (height*width) - (heightW*widthW) - (heightD*widthD);
+                            document.getElementById('d').textContent = `TOTAL WALL AREA: ${area}m²`;
+                            document.getElementById('e').textContent = `PAINT NEEDED: ${area*0.1} quarts`;
+                        }
+                    }
+
+                    if(valid === false) {
+                        alert("Your input was invalid. Please try again.");
+                    }
+                }
+            } 
+		</script>
+        
+        <div style="background-color:greenyellow">
+        <button onClick="dimension(width, height, 'dimensions', 'a', isSet);">Add Wall Dimensions</button>
+            <button onClick="dimension(widthW, heightW, 'window', 'b', isSetW);">Add Window</button>
+            <button onClick="dimension(widthD, heightD, 'door', 'c', isSetD);">Add Door</button>
+            <button onClick="colour();">Paint Wall</button>
+            
+            <h2 id="a"></h2>
+            <h2 id="b"></h2>
+            <h2 id="c"></h2>
+            <h2 id="d"></h2>
+            <h2 id="e"></h2>
+        </div>
+        
+        <div id="wall" style="background-color:white">
+            <center><img name="dimensions" src="https://i.ya-webdesign.com/images/blank-square-png-2.png" height="0" width="0" alt="Pretend this is the wall."></center>
+            <center><img name="window" src="https://cdn.clipart.email/6caa7d245df2dda1d61cd2e22606ced0_window-clipart-transparent-background_210-211.png" height="0" width="0" alt="A window."></center>
+            <img name="door" src="https://clipartstation.com/wp-content/uploads/2018/09/doors-clipart.jpg" heoght="0" width="0" alt="A door.">
+        </div>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Exercise 7b</title>
+		<h2 style="color:slategrey;">Exercise 7b: Age Restrictions</h2>
+		<h1 style="color:slategrey;"><u>A Simple Name Calculator by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:forestgreen;">
+
+		<script language = "JavaScript" type = "text/javascript">
+            alert("Welcome to the Age page"); //Welcoming alert
+            
+            var name = prompt("Please input your name.");
+            var age = parseInt(prompt("Please input your age.")); //Inputs
+            var space = " "; //Used for conveniency
+            
+            function calculate() {
+                if(isNaN(age) != true) {
+                    if(age === 30) {
+                        return "Wasted your time here, you currently are 30!"
+                    }else if(age > 30) {
+                        return ` Already been 30, ${age - 30} years ago!`;
+                    }else {
+                        return 30 - age + ' more years until you turn 30!';
+                    } //Returns years until 30
+                }else {
+                    return " Inputted an invalid value. Please try again.";
+                } //Error message
+            }
+            
+        document.write("<h1>Hi, <span style=\"color:royalblue;\">", name + " (", age + ")" + "</span></h2>"); //Writes input
+        document.write("<p><h1>You have: <span style=\"color:red;\">" + calculate() +"</span> <h1>"); //Writes output
+            
+		</script>
+        <img src="https://lh3.googleusercontent.com/proxy/kwmvLFTgG-ITueMURAfniP9RKCfq-43v84-FN3HILCNORKXpi1qa58Zy8pEs46ZW4gecGHY-vgIdDYtkbAdb-QLj3rtmLeHlTozIJbhFuyDfDiwDN5eTKcc7Yd8tzHthCfkoqsaU0YNEtdpXVHQSBvtvs4AZfw" alt="30 Years Old" width="500" height="400" onClick="alert(calculate());"> <!-- Decorative photo -->
+	</body>
+</html>

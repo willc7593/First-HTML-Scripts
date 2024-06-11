@@ -1,0 +1,222 @@
+<html>
+	<head>
+		<title>Exercise 24 and 26</title>
+		<h2 style="color:yellow;">Exercise 24/26: Sentences</h2>
+		<h1 style="color:yellow;"><u>Sentence Manipulator by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:slategrey">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Sentence page"); //Welcoming alert
+        
+            function confirm() {
+                var sentence = [];
+                var inText = document.forms.main.write.value;
+                var addText = document.forms.main.add.value;
+                var subText = document.forms.main.remove.value;
+                
+                if(inText === "") {
+                    alert("Please write your sentence.");
+                    return;
+                }
+                
+                for(var i = 0; i < inText.length; i++) {
+                    sentence.push(inText.charAt(i));
+                }
+                
+                if(document.forms.main.yesA.checked === true) {
+                    sentence.push(" ");
+                    for(var i = 0; i < addText.length; i++) {
+                        sentence.push(addText.charAt(i));
+                    }
+                }
+                
+                if(document.forms.main.yesR.checked === true) {
+                    sentence.splice(sentence.indexOf(subText.charAt(0)),subText.length+1);
+                }
+                
+                document.forms.main.output.value = sentence.join("");
+            }
+            
+            function flip() {
+                var sentence = document.forms.main.output.value;
+                var newF = [];
+                
+                if(sentence === "") {
+                    alert("Please have your confirmed sentence ready.")
+                    return;
+                }
+                
+                for(var i = sentence.length; i != -1; i--) {
+                    newF.push(sentence.charAt(i))
+                }
+                document.forms.main.a.value = newF.join("");
+            }
+            
+            function vowel() {
+                var sentence = document.forms.main.output.value;
+                var newV = [];
+                
+                if(sentence === "") {
+                    alert("Please have your confirmed sentence ready.")
+                    return;
+                }
+                
+                for(var i = 0; i < sentence.length; i++) {
+                    switch(sentence.charAt(i).toLowerCase()) {
+                        case 'a': break;
+                            
+                        case 'e': break;
+                            
+                        case 'i': break;
+                            
+                        case 'o': break;
+                            
+                        case 'u': break;
+                            
+                        default: newV.push(sentence.charAt(i));
+                        break;
+                    }
+                }
+                document.forms.main.b.value = newV.join("");
+            }
+            
+            function chaos() {
+                var sentence = document.forms.main.output.value;
+                var newF = [];
+                var newC = [];
+                
+                if(sentence === "") {
+                    alert("Please have your confirmed sentence ready.")
+                    return;
+                }
+                
+                for(var i = sentence.length; i != -1; i--) {
+                    newF.push(sentence.charAt(i))
+                }
+                
+                for(var i = 0; i < sentence.length; i++) {
+                    switch(newF[i].toLowerCase()) {
+                        case 'a': break;
+                            
+                        case 'e': break;
+                            
+                        case 'i': break;
+                            
+                        case 'o': break;
+                            
+                        case 'u': break;
+                            
+                        default: newC.push(newF[i]);
+                        break;
+                    }
+                }
+                document.forms.main.c.value = newC.join("");
+            }
+            
+            function words() {
+                var sentence = document.forms.main.output.value;
+                var num = 1;
+                
+                if(sentence === "") {
+                    alert("Please have your confirmed sentence ready.")
+                    return;
+                }
+                
+                for(var i = 0; i < sentence.length; i++) {
+                    if(sentence.charAt(i) === " ") {
+                        num++;
+                    }
+                }
+                document.forms.main.lenth.value = `There are: ${num} words in the sentence, with ${sentence.length - num + 1} characters.`;
+            }
+            
+            function translat() {
+                var sentence = document.forms.main.output.value;
+                var vowels = ['a', 'e', 'i', 'o', 'u'];
+                var resultArray = [];
+                
+                if(sentence === "") {
+                    alert("Please have your confirmed sentence ready.")
+                    return;
+                }
+                
+                for(var i = 0; i < sentence.length; i++) {
+                    for(var j = 0; j < vowels.length; j++) { 
+                        if(sentence.charAt(i) === vowels[j]) {
+                            resultArray.push(sentence.charAt(i));
+                        }
+                    }
+		
+                    if(sentence.charAt(i) === 'e') {
+                        resultArray.push('e');
+                    }
+
+                    if(sentence.charAt(i) === 'u') {
+                        resultArray.push('u');
+                    }
+                }
+                document.forms.main.whale.value = resultArray.join("").toUpperCase();
+            }
+		</script>
+        
+        <form name="main">
+            <div style="background-color:aquamarine">
+                <h3>Write your sentence here:</h3>This is the sentence that will be used
+                <br><b>Sentence:</b>
+                <input name="write" type="text" size="120" value=""/>
+
+                <br><br><h3>Add more words:</h3>This will add additional words <u>to the end of the sentence</u>
+                <br><b>Add</b><input name="yesA" type="checkbox">
+                <input name="add" type="text" size="120"/>
+
+                <br><br><h3>Remove a word:</h3>This will remove the specific word requested (Must be in original sentence)
+                <br><u>ANOTHER WORD BEFORE IT MUST NOT START WITH THE SAME LETTER</u>
+                <br><b>Remove</b><input name="yesR" type="checkbox">
+                <input name="remove" type="text" size="120"/>
+            </div>
+            
+            
+            <center><img src="https://lh3.googleusercontent.com/proxy/l8xF6mmQ4YysH8ob0bH1JNajHiNIidBnHTk60zp2DmlAmDcK7bCFcqtXtmYnNgKMjZKE5j8X2V8kbzkGJGo6X2ujk9LN0GY" height="100" width="150" alt="Arrow"></center>
+            
+            
+            <div style="background-color:lawngreen">
+                <h3>Confirm your sentence:</h3>Your current sentence that will be manipulated will show up here
+                <br><b>Confirm</b><input type="radio" onClick="confirm()"/>
+                <input name="output" type="text" size="120"/>
+                
+                <br><br>Counts the words in your confirmed sentence
+                <br><b>Words</b><input type="radio" onClick="words()"/>
+                <input name="lenth" type="text" size="50"/>
+            </div>
+            
+            
+            <center><img src="https://lh3.googleusercontent.com/proxy/l8xF6mmQ4YysH8ob0bH1JNajHiNIidBnHTk60zp2DmlAmDcK7bCFcqtXtmYnNgKMjZKE5j8X2V8kbzkGJGo6X2ujk9LN0GY" height="100" width="150" alt="Arrow"></center>
+            
+            
+            <div style="background-color:red">
+                <h3>Flip the sentence around:</h3>Every letter in the sentence will show in reverse order
+                <br><b>Flip</b><input type="radio" onClick="flip()"/>
+                <input name="a" type="text" size="120"/>
+                
+                <br><br><h3>Remove all the vowels:</h3>Every vowel in the sentence will be removed
+                <br><b>Vowels</b><input type="radio" onClick="vowel()"/>
+                <input name="b" type="text" size="120"/>
+                
+                <br><br><h3>Do both at the same time:</h3>Will reverse the sentance AND remove vowels
+                <br><b>Chaos</b><input type="radio" onClick="chaos()"/>
+                <input name="c" type="text" size="120"/>
+            </div>
+            
+            
+            <center><img src="https://lh3.googleusercontent.com/proxy/l8xF6mmQ4YysH8ob0bH1JNajHiNIidBnHTk60zp2DmlAmDcK7bCFcqtXtmYnNgKMjZKE5j8X2V8kbzkGJGo6X2ujk9LN0GY" height="100" width="150" alt="Arrow"></center>
+            
+            
+            <div style="background-color:mediumblue">
+                <h3>Whale Translator RETURNS:</h3>The classic Oceanic Translator from Assignment 6 of Term 2 returns! Only the vowels will be taken from your sentence, and E's and U's will be doubled.
+                <br><b>Translate</b><input type="radio" onClick="translat()"/>
+                <input name="whale" type="text" size="120"/>
+            </div>
+        </form>
+	</body>
+</html>

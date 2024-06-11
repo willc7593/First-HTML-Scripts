@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Exercise 19</title>
+		<h2 style="color:darkslategrey;">Exercise 19: Square</h2>
+		<h1 style="color:darkslategrey;"><u>Perimeter and Area by: Will Croll</u></h1>
+	</head>
+	
+	<body style="background-color:deepskyblue">
+		<script language="JavaScript" type="text/javascript">
+            alert("Welcome to the Square page"); //Welcoming alert
+            
+            var width = parseInt(prompt("What is the width of your square?","Enter a number from 1 to 100")); //Holds square width
+            var length = parseInt(prompt("What is the length of your square?","Enter a number from 1 to 100")); //Holds square length
+            
+            function perimeter(l,w) {
+                return 2*l + 2*w;
+            } //Returns square perimeter
+            
+            function area(l,w) {
+                return l * w;
+            } //Returns square area
+            
+            if((isNaN(width)) || (isNaN(length))) {
+                document.write("<h2 style=\'color:red\'>Invalid measurements. Please try again");
+            }else if((width >100) || (length > 100)) {
+                alert("Please input numbers less than 100.")
+                document.write("<h2 style=\'color:red\'>Invalid measurements. Please try again");
+            }else {
+                document.write("<h2>Width: <span style=\'color:red\'>", width + "0 px</span> Length: <span style=\'color:red\'>", length + "0 px</h2>");
+                document.write("<h2>The perimeter of your square is: <span style=\'color:red\'>", perimeter(length,width) + "0 px</h2>");
+                document.write("<h2>The area of your square is: <span style=\'color:red\'>", area(length,width) + "0 px</h2>");
+            }
+            
+            function doIt() {
+                if((isNaN(width)) || (isNaN(length))) {
+                    document.write("Your square does not exist.");
+                }else if((width >100) || (length > 100)) {
+                    document.write("Your square does not exist.");
+                }else {
+                    document.images['square'].style.height = length * 10;
+                    document.images['square'].style.width = width * 10;
+                }
+            }
+		</script>
+        
+        <div style="background-color:limegreen">
+            <button onClick="doIt();">See what your square looks like</button>
+            <center><img name="square" src="https://cdn.shopify.com/s/files/1/0402/3309/collections/Blue_Square_large.jpg?v=1418931750" height="0" width="0" alt="A square."></center>
+        </div>
+	</body>
+</html>
